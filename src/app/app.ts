@@ -10,3 +10,6 @@ import { RouterOutlet, RouterLink } from '@angular/router';
 export class App {
   protected readonly title = signal('routinginangular');
 }
+
+
+// This allows pages to load without reloading"
