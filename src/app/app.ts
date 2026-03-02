@@ -1,5 +1,5 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet, RouterLink, Router } from '@angular/router';
+import { RouterOutlet, RouterLink, Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +10,13 @@ import { RouterOutlet, RouterLink, Router } from '@angular/router';
 export class App {
   protected readonly title = signal('routinginangular');
   isDashboardRoute = false;
-  constructor(private router: Router){}
+  constructor(private router: Router){
+      this.router.events.subscribe((event) => {
+          if(event instanceof NavigationEnd){
+              this.isDashboardRoute = event.url.startsWith('/dashboard');
+          }
+      })
+  }
 
   goToDashboard(){
       this.router.navigate(['/dashboard'])
