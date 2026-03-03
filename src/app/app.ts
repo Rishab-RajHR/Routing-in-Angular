@@ -1,15 +1,19 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet, RouterLink, Router, NavigationEnd } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, RouterLink],
+  imports: [RouterOutlet, RouterLink, FormsModule],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
   protected readonly title = signal('routinginangular');
   isDashboardRoute = false;
+
+  userName: string = '';
+
   constructor(private router: Router){
       this.router.events.subscribe((event) => {
           if(event instanceof NavigationEnd){
@@ -20,6 +24,14 @@ export class App {
 
   goToDashboard(){
       this.router.navigate(['/dashboard'])
+  }
+
+  navigateToGreeting() {
+      if(this.userName.trim()){
+          this.router.navigate(['/greeting', this.userName]);
+      } else {
+        alert('Please Enter Your Name to navigate greetings page');
+      }
   }
 
 }

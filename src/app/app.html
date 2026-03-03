@@ -2,7 +2,9 @@
     <div>
   <a routerLink="/home">Home</a>  <br> <br>
   <a routerLink="/about">About</a>
-  <button (click)="goToDashboard()">Go to Dashboard</button>
+  <button (click)="goToDashboard()">Go to Dashboard</button> <br>
+  <label for="name">Enter your name:</label>
+  <input type="text" id="name" placeholder="Your Name" [(ngModel)]="userName" >
 </div>
 }
 
