@@ -5,6 +5,7 @@ import { Dashboard } from './dashboard/dashboard';
 import { Profile } from './profile/profile';
 import { Settings } from './settings/settings';
 import { Greeting } from './greeting/greeting';
+import { QueryFragment } from './query-fragment/query-fragment';
 
 export const routes: Routes = [
     { path: '', redirectTo:'home' , pathMatch: 'full' },
@@ -14,6 +15,7 @@ export const routes: Routes = [
         { path: 'profile', component: Profile },
         { path: 'settings', component: Settings },
     ]},
-    { path: 'greeting/:name', component: Greeting }
+    { path: 'greeting/:name', component: Greeting },
+    {path: 'query-fragment', component: QueryFragment}
 
 ];
