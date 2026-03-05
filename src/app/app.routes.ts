@@ -6,6 +6,9 @@ import { Profile } from './profile/profile';
 import { Settings } from './settings/settings';
 import { Greeting } from './greeting/greeting';
 import { QueryFragment } from './query-fragment/query-fragment';
+import { Login } from './login/login';
+import { Personal } from './personal/personal';
+import { authGuard } from './auth-guard';
 
 export const routes: Routes = [
     { path: '', redirectTo:'home' , pathMatch: 'full' },
@@ -16,6 +19,8 @@ export const routes: Routes = [
         { path: 'settings', component: Settings },
     ]},
     { path: 'greeting/:name', component: Greeting },
-    {path: 'query-fragment', component: QueryFragment}
+    {path: 'query-fragment', component: QueryFragment},
+    {path: 'login', component: Login},
+    {path: 'personal', component: Personal, canActivate:[authGuard]}
 
 ];
