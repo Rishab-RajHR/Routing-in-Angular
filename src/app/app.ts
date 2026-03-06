@@ -34,6 +34,10 @@ export class App {
       }
   }
 
+  isPageNotFound(): boolean{
+      return this.router.url === '/page-not-found';
+  }
+
 }
 
 
