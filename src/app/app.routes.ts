@@ -22,6 +22,7 @@ export const routes: Routes = [
     { path: 'greeting/:name', component: Greeting },
     {path: 'query-fragment', component: QueryFragment},
     { path: 'page-not-found', component: PageNotFound},
+    { path: 'page-not-found', redirectTo: 'page-not-found'},
     {path: 'login', component: Login},
     {path: 'personal', component: Personal, canActivate:[authGuard]}
 
